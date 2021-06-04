@@ -1,3 +1,5 @@
+import "./chat.css";
+
 import ChatController from "./chat.controller";
 import template from "./chat.template.html";
 

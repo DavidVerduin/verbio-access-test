@@ -6,7 +6,7 @@
 class LoginFormController {
 
   /**@type {{user: String, password: String}} */
-  formData;
+  formData = {};
 
   /**
    * @param {ng.ui.IStateService} $state
@@ -34,6 +34,7 @@ class LoginFormController {
     } else if(!formData.password) {
       this.userErrorMsg = 'El campo contraseña es obligatorio';
     } else {
+      this.userErrorMsg = null;
       this.AuthFactory.login(formData)
         .then(() => {
           this.$state.go('chat');
@@ -42,6 +43,11 @@ class LoginFormController {
           this.userErrorMsg = 'Las credenciales no son correctas';
         });
     }
+  }
+
+  clear() {
+    this.formData = {};
+    this.userErrorMsg = null;
   }
 
 }

@@ -1,9 +1,9 @@
 .chat {
-  width: 100%;
+  width: 90%;
   height: 100%;
   padding: 1rem;
   border: solid black 1px;
-  background-color: rgb(173, 206, 165);
+  background-color: whitesmoke;
 }
 
 .chat-header {

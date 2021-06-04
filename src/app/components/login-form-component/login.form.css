@@ -1,0 +1,69 @@
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.form {
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.form-chunk {
+  margin: 1rem 2rem;
+}
+
+.form-chunk .form-chunk__errormsg {
+  color:rgb(128, 45, 45)
+}
+
+.form-chunk label {
+  color: rgb(93, 93, 93);
+}
+
+.form-chunk input {
+  height: 1rem;
+  font-size: 1rem;
+}
+
+@media(min-width: 500px) {
+  .form-chunk input {
+    height: 2rem;
+    font-size: 2rem;
+  }
+}
+
+.form-chunk .form-button {
+  border-radius: 3px;
+  height: 45px;
+  line-height: 40px;
+  width: 110px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: large;
+  border: 0;
+}
+
+.form-chunk .form-button--filled {
+  background-color: #0cddb8;
+  color: white;
+}
+
+.form-chunk .form-button--filled {
+  background-color: #0cddb8;
+  color: white;
+}
+
+.form-chunk .form-button--outline {
+  background-color: white;
+  border: 1px solid #0cddb8;
+  color: #0cddb8;
+}
+
+.form-chunk .form-button:hover {
+  cursor: pointer;
+  font-weight: bold;
+}

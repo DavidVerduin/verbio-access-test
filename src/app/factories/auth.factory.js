@@ -4,7 +4,7 @@
  * @param {import("../services/login.service").default} LoginService 
  */
 const AuthFactory = ($q, LoginService) => {
-  let authToken = 'patata';
+  let authToken = 'TOKEN';
   return {
     allowRouting,
     getToken: () => authToken,
@@ -12,13 +12,14 @@ const AuthFactory = ($q, LoginService) => {
   }
 
   /**
-   * 
    * @returns {ng.IPromise<void>} Resolved if the service went Ok, rejected if it did not
    */
   function login() {
     /* const defered = $q.defer();
     LoginService.login()
-      .then(defered.resolve)
+      .then(response => {
+        authToken = response.session_id;
+      })
       .catch(defered.reject);
     return defered.promise; */
     return $q.resolve();

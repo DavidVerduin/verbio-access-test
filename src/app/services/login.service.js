@@ -11,8 +11,8 @@ class LoginService {
   }
 
   /**
-   * 
    * @param {{user: String, password: String}} credentials 
+   * @returns {ng.IPromise<{session_id: String}>}
    */
   login(credentials) {
     return this.$http.post(
