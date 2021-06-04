@@ -1,0 +1,14 @@
+<form class="form" ng-submit="LoginFormController.submit(LoginFormController.formData)">
+  <div class="form-chunk">
+    <label for="user">Usuario:</label>
+    <input type="text" name="user" id="formData:user" ng-model="LoginFormController.formData.user" />
+  </div>
+  <div class="form-chunk">
+    <label for="password">Contraseña:</label>
+    <input type="password" name="password" id="formData:password" ng-model="LoginFormController.formData.password" />
+  </div>
+  <div class="form-chunk">
+    <button type="submit">Entrar</button>
+    <button ng-click="LoginFormController.formData = {}">Limpiar</button>
+  </div>
+</form>
