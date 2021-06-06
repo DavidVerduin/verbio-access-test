@@ -1,0 +1,21 @@
+.bubble {
+  margin: 5px 10px;
+	padding: 5px 10px;
+	color: black;
+  max-width: 90%;
+	line-height: 25px;
+	border-radius: 5px;
+  border-bottom: grey 1px solid;
+  overflow-wrap: break-word;
+  animation-duration: 2s;
+  animation-name: showMessage;
+}
+
+.message-info{
+  color: grey;
+}
+
+@keyframes showMessage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

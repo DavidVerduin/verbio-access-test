@@ -1,16 +1,20 @@
 <div class="chat">
   <div class="chat-header">
-    
+    <p>¡Bienvenido al chat!</p>
   </div>
   <div class="chat-body">
     <div class="chat-body_messages">
-
+      <div ng-repeat="message in ChatController.messageList"  ng-style="{'text-align': message.mine ? 'right' : 'left'}" >
+        <message data="message" ></message>
+      </div>
+      <a id="bottomMessage"></a>
     </div>
     <div class="chat-body_status">
-
+      <p ng-if="ChatController.showWrittingMsg">El bot está escribiendo...</p>
     </div>
   </div>
-  <div class="chat-input">
-
-  </div>
+  <form class="chat-input" ng-submit="ChatController.sendMessage(ChatController.userMessageModel)">
+    <input type="text" ng-model="ChatController.userMessageModel"/>
+    <button type="submit">SEND</button>
+  </form>
 </div>
