@@ -1,19 +1,9 @@
 /**
+ * @summary In this factory we gather all the funcionality with chat management
  * @param {ng.IQService} $q
- * @param {import("../services/chat.service").default} ChatService 
- * @returns 
+ * @param {import("../services/chat.service").default} ChatService The class which owns all the chat http services
  */
-const ChatFactory = ($q, ChatService, $timeout) => {
-  const mockMessages = [
-    {
-      type: "image",
-      url: "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
-    },
-    {
-      type: "text",
-      text: "Texto de prueba"
-    }
-  ]
+const ChatFactory = ($q, ChatService) => {
 
   return {
     getWelcomeMessage,
@@ -24,15 +14,11 @@ const ChatFactory = ($q, ChatService, $timeout) => {
    * @returns {ng.IPromise<Array<import("../dtos/message.dto").default>>}
    */
   function getWelcomeMessage() {
-    /* const defered = $q.defer();
+    const defered = $q.defer();
     ChatService.getWelcomeMessage()
-      .then(({response}) => {
-        messages = response;
-        return defered.resolve(response);
-      })
+      .then(response => defered.resolve(response.data.response))
       .catch(defered.reject);
-    return defered.promise; */
-    return $timeout(() => $q.resolve({...(mockMessages[new Date().getTime() % 2]), date: new Date().getTime()}), 200);
+    return defered.promise;
   }
 
 
@@ -41,15 +27,11 @@ const ChatFactory = ($q, ChatService, $timeout) => {
    * @returns {ng.IPromise<Array<import("../dtos/message.dto").default>>}
    */
   function sendMessage(text) {
-    /* const defered = $q.defer();
+    const defered = $q.defer();
     ChatService.sendMessage(text)
-      .then(({response}) => {
-        messages = response;
-        return defered.resolve(response);
-      })
+      .then(response => defered.resolve(response.data.response))
       .catch(defered.reject);
-    return defered.promise; */
-    return $timeout(() => $q.resolve({...(mockMessages[new Date().getTime() % 2]), date: new Date().getTime()}), 200);
+    return defered.promise;
   }
 }
 

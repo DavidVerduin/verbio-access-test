@@ -4,25 +4,27 @@
  * @param {import("../services/login.service").default} LoginService 
  */
 const AuthFactory = ($q, LoginService) => {
-  let authToken = 'TOKEN';
   return {
     allowRouting,
-    getToken: () => authToken,
     login
   }
 
   /**
    * @returns {ng.IPromise<void>} Resolved if the service went Ok, rejected if it did not
    */
-  function login() {
-    /* const defered = $q.defer();
-    LoginService.login()
+  function login(credentials) {
+    const defered = $q.defer();
+    LoginService.login(credentials)
       .then(response => {
-        authToken = response.session_id;
+        if(response.data && response.data.session_id) {
+          localStorage.setItem('auth-token', response.data.session_id);
+          return defered.resolve();
+        } else {
+          return defered.reject();
+        }
       })
       .catch(defered.reject);
-    return defered.promise; */
-    return $q.resolve();
+    return defered.promise;
   }
 
   /**
@@ -30,7 +32,7 @@ const AuthFactory = ($q, LoginService) => {
    * @returns {ng.IPromise<void>} Resolved if there is an existing auth token, rejected if there isn´t
    */
   function allowRouting() {
-    return authToken ? $q.resolve() : $q.reject();
+    return localStorage.getItem('auth-token') ? $q.resolve() : $q.reject();
   }
 }
 

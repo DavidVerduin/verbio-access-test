@@ -2,7 +2,7 @@
   {{MessageController.data.mine ? "Tú" : "Bot"}} - {{::MessageController.data.date | date:'short'}}
 </div>
 <div class="bubble" ng-style="{'text-align': MessageController.data.mine ? 'right' : 'left'}">
-  <img class="message" ng-if="MessageController.data.type === 'image'" src="{{::MessageController.data.url}}" width="200px" height="200px">
+  <img class="message" ng-if="MessageController.data.type === 'image'" src="{{MessageController.data.url + '?' + MessageController.data.date}}" height="200px">
 
   <span class="message" ng-if="MessageController.data.type === 'text'" ng-bind="MessageController.data.text" class="message-text"></span>
 </div>
