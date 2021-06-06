@@ -8,6 +8,9 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 
+# Coverage files made by jest
+coverage/
+
 # Optional npm cache directory
 .npm
 

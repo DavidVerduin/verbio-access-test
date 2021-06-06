@@ -2,5 +2,9 @@
   "plugins": ["jest"],
   "env": {
     "jest/globals": true
+  },
+  "globals": {
+    "angular": true,
+    "inject": true
   }
 }

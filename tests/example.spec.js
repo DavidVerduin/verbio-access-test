@@ -1,15 +1,7 @@
-// adds special assertions like toHaveTextContent
-import "@testing-library/jest-dom/extend-expect";
+describe('example', function(){
 
-import { getByText } from "@testing-library/dom";
+  it('1 + 1 should equal 2 ', function(){
+    expect(2).toEqual(2);
+  });
 
-import { printUsers } from "../src/index";
-
-test("examples of some things", async () => {
-  const container = await printUsers();
-  document.body.appendChild(container);
-
-  const user = getByText(container, "Current users");
-
-  expect(user).toBeInTheDocument();
 });
