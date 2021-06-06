@@ -10,6 +10,7 @@
   The app module is the one who initializes every library needed, which is only @uiRouter for the routing.
   Component module, which is a dependency of the App Module, is the one who owns the components created.
 </p>
+<p>Backend API_URL variable is created in the webpack files so it can be easily changed.</p>
 <p>
   All the project is documented with JSDoc, which I´ve found the greatest way to document (and pseudo-type, since we are not using TypeScript) the code
 </p>

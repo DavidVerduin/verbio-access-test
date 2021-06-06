@@ -28,5 +28,8 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"
+  },
+  "globals": {
+    "API_URL": true
   }
 }

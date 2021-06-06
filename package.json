@@ -45,6 +45,10 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
   "dependencies": {
     "@uirouter/angularjs": "^1.0.29",
     "angular": "^1.6.9",

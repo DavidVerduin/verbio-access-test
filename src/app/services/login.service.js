@@ -6,8 +6,6 @@ class LoginService {
    */
   constructor($http) {
     this.$http = $http;
-
-    this.baseUrl = "http://localhost:5556";
   }
 
   /**
@@ -16,7 +14,7 @@ class LoginService {
    */
   login(credentials) {
     return this.$http.post(
-      `${this.baseUrl}/login`, 
+      `${API_URL}/login`, 
       credentials, 
       {headers: {"Content-Type": "application/json"}}
     );

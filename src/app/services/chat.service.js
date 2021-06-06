@@ -6,8 +6,6 @@ class ChatService {
    */
   constructor($http) {
     this.$http = $http;
-
-    this.baseUrl = "http://localhost:5556";
   }
 
   /**
@@ -16,7 +14,7 @@ class ChatService {
    */
   getWelcomeMessage() {
     return this.$http.get(
-      `${this.baseUrl}/getWelcomeMessage`, 
+      `${API_URL}/getWelcomeMessage`, 
       {headers: {
         "Authorization": true,
         "Content-Type": "application/json"
@@ -31,7 +29,7 @@ class ChatService {
    */
   sendMessage(text) {
     return this.$http.post(
-      `${this.baseUrl}/sendMessage`, 
+      `${API_URL}/sendMessage`, 
       {text},
       {headers: {
         "Authorization": true,
