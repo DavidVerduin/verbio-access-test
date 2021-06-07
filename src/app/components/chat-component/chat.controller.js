@@ -8,11 +8,13 @@ class ChatController {
    * @summary Set dependencies to this
    * @param {ng.IAnchorScrollService} $anchorScroll
    * @param {ng.IScope} $scope
+   * @param {import("../../factories/auth.factory").default} AuthFactory 
    * @param {import("../../factories/chat.factory").default} ChatFactory 
    */
-  constructor($anchorScroll, $scope, ChatFactory) {
+  constructor($anchorScroll, $scope, AuthFactory, ChatFactory) {
     this.$anchorScroll = $anchorScroll;
     this.$scope = $scope;
+    this.AuthFactory = AuthFactory;
     this.ChatFactory = ChatFactory;
   }
 
@@ -73,8 +75,12 @@ class ChatController {
       this.$anchorScroll('bottomMessage');
     }, 0);
   }
+
+  logout() {
+    this.AuthFactory.logout();
+  }
 }
 
-ChatController.$inject = ["$anchorScroll", "$scope", "ChatFactory"];
+ChatController.$inject = ["$anchorScroll", "$scope", "AuthFactory", "ChatFactory"];
 
 export default ChatController;

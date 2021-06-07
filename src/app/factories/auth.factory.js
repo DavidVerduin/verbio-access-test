@@ -1,12 +1,14 @@
 /**
  * @summary Every bit of authentication related functionality must be in this factory
+ * @param {ng.ui.IStateService} $state 
  * @param {ng.IQService} $q 
  * @param {import("../services/login.service").default} LoginService 
  */
-const AuthFactory = ($q, LoginService) => {
+const AuthFactory = ($state, $q, LoginService) => {
   return {
     allowRouting,
-    login
+    login,
+    logout
   }
 
   /**
@@ -27,6 +29,11 @@ const AuthFactory = ($q, LoginService) => {
     return defered.promise;
   }
 
+  function logout() {
+    localStorage.removeItem('auth-token');
+    $state.go("login");
+  }
+
   /**
    * This is in a separate function so it´s easy to modify in case new restriction need to be added
    * @returns {ng.IPromise<void>} Resolved if there is an existing auth token, rejected if there isn´t
@@ -36,6 +43,6 @@ const AuthFactory = ($q, LoginService) => {
   }
 }
 
-AuthFactory.$inject = ["$q", "LoginService"];
+AuthFactory.$inject = ["$state", "$q", "LoginService"];
 
 export default AuthFactory;
