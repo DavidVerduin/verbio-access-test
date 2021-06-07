@@ -5,22 +5,30 @@ class ChatController {
 
   userMessageModel = "";
   /**
-   * 
+   * @summary Set dependencies to this
+   * @param {ng.IAnchorScrollService} $anchorScroll
+   * @param {ng.IScope} $scope
    * @param {import("../../factories/chat.factory").default} ChatFactory 
    */
-  constructor($anchorScroll, $location, $scope, ChatFactory) {
+  constructor($anchorScroll, $scope, ChatFactory) {
     this.$anchorScroll = $anchorScroll;
-    this.$location = $location;
     this.$scope = $scope;
     this.ChatFactory = ChatFactory;
   }
 
+  /**
+   * @summary AngularJS init life-cycle method. Show writting message and gets and displays welcome message
+   */
   $onInit() {
     this._botWritting(true);
     this.ChatFactory.getWelcomeMessage()
       .then(this._manageNewMessages.bind(this));
   }
 
+  /**
+   * @summary Sends model and displays response
+   * @param {String} text 
+   */
   sendMessage(text) {
     if (!text || this.showWrittingMsg) return;
     this.userMessageModel = "";
@@ -32,7 +40,7 @@ class ChatController {
   }
 
   /**
-   * @summary Kind of recursive function to manage the one by one adding of the messages
+   * @summary "Kind of recursive" function to manage the one by one adding of the messages
    * @param {Array<import("../../dtos/message.dto").default>} list 
    */
   _manageNewMessages(list) {
@@ -60,17 +68,13 @@ class ChatController {
    * @summary Scrolls to last message
    */
   scrollBottom() {
+    /**Timeout because at the moment of the call, the element doesn´t exist yet in the DOM. A $digest cycle later, the timeout concludes */
     setTimeout(() => {
-      // set the location.hash to the id of
-      // the element you wish to scroll to.
-      this.$location.hash('bottomMessage');
-  
-      // call $anchorScroll()
-      this.$anchorScroll();
-    }, 0)
+      this.$anchorScroll('bottomMessage');
+    }, 0);
   }
 }
 
-ChatController.$inject = ["$anchorScroll", "$location", "$scope", "ChatFactory"];
+ChatController.$inject = ["$anchorScroll", "$scope", "ChatFactory"];
 
 export default ChatController;

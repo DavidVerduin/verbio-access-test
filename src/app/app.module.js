@@ -11,6 +11,7 @@ import AuthInterceptor from "./interceptors/auth.interceptor";
 import ChatService from "./services/chat.service";
 import LoginService from "./services/login.service";
 
+/**Entry point of the app, main module */
 angular.module("app", [ComponentsModule.name, uiRouter])
   .config(AppConfig)
   .config(appRouting)

@@ -1,7 +1,7 @@
 "use strict";
+/**Class which has all the http /login services */
 class LoginService {
   /**
-   * 
    * @param {ng.IHttpService} $http 
    */
   constructor($http) {

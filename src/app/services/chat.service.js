@@ -1,7 +1,7 @@
 "use strict";
+/**Class which has every chat http service */
 class ChatService {
   /**
-   * 
    * @param {ng.IHttpService} $http 
    */
   constructor($http) {
@@ -23,7 +23,7 @@ class ChatService {
   }
 
   /**
-   * 
+   * @summary Service which receives a message and returns a list of the bot messages
    * @param {String} text 
    * @returns {ng.IPromise<{response: Array<import("../dtos/message.dto").MessageDTO>}>}
    */
